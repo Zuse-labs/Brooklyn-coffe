@@ -20,11 +20,16 @@ def gallery():
 
 @app.route("/menu")
 def menu():
-    return render_template('menu.html')
+    lista = {}
+    return render_template('menu.html', lista=lista)
 
 @app.route("/reservation")
 def reservation():
     return render_template('reservation.html')
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 
 
